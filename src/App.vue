@@ -1,37 +1,47 @@
+<script setup lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
+</script>
+
 <template>
-  <nav class="navbar sticky-top bg-body-tertiary">
-      <div class="text-gray-600 text-lg">
-        <RouterLink to="/" style="text-decoration: none">             
-            <div class="d-flex" style="align-items:center;">
-                <v-img
-                    :aspect-ratio="1"
-                    class="bg-white"
-                    :src="logoCircle"
-                    style="width:50px;border-radius:20px;margin-left:10px;"                         
-                ></v-img>
-                <span style="padding-left:10px;"><strong>Fundação Mãos Unidas</strong></span>
-            </div>
-        </RouterLink>
-      </div>
-        <div class="justify-end">
-            <RouterLink
-              to="/dashboard"
-              style="text-decoration: none !important;"
-            >
-              <span>Dashboards</span>
-            </RouterLink>
-            <RouterLink 
-              to="/accounts"
-              style="text-decoration: none !important;margin-left: 10px;margin-right: 10px;"
-            >
-              <span>Prestação de Contas</span>              
-            </RouterLink>           
-        </div>
-    </nav>  
-  <router-view></router-view>
+  <header>
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="TESTES!" />
+    </div>
+  </header>
+
+  <main>
+    <TheWelcome />
+  </main>
 </template>
 
-<script setup lang="ts">
-import logoCircle from './assets/images/logo_fundacao.jpeg'
+<style scoped>
+header {
+  line-height: 1.5;
+}
 
-</script>
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+</style>
